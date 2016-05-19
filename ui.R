@@ -8,22 +8,18 @@ shinyUI(
     
     ## Barra de navegacion
     
-    navbarPage("Titulo",
+    navbarPage("#GoTSeason6",
                
                ## Panel 1
                
-               tabPanel("Panel 1",
+               tabPanel("Data Input",
                         sidebarLayout(
                             sidebarPanel(
-                                fileInput("in_file", "Selecciona archivo")
-                                
-                                ##---------------------------------------------
-                                
-                                ##TAREA1: Implementar numericInput para numero de filas
-                                
-                                ##---------------------------------------------
-                                
+                                fileInput("in_file", "Selecciona archivo"),
+                            
+                                numericInput("display","How many to display?","0") 
                             ),
+                            
                             mainPanel(
                                 tableOutput("tweets")
                             )
@@ -32,22 +28,22 @@ shinyUI(
                
                ## Panel 2
                
-               tabPanel("Panel 2",
+               tabPanel("Resultados",
                         sidebarLayout(
                             sidebarPanel(
-                                ##---------------------------------------------
-                                
-                                ##TAREA2: Implementar dateRangeInput
-                                
-                                ##---------------------------------------------
+                              
+                                   sliderInput("slider","Number",2,20,2),
+                                  dateRangeInput("range","Range")
+                                  
+                            
+                              
                                 ),
                             mainPanel(
-                                ##---------------------------------------------
-                                
-                                ##TAREA2: Implementar grafico de evolucion
-                                
-                                ##---------------------------------------------
-                                )
+                              
+                            
+                                  plotOutput("plot")
+                               
+                              )
                         )
                )
                
